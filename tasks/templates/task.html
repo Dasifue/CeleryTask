@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-cost">
+    <div class="title-cost">
+        {{ task.name }}
+    </div>
+    {% if task.description %}
+    <div class="description-cost">
+        {{ task.description }}
+    </div>
+    {% endif %}
+    <div class="mark-cost">
+        {% if task.mark %}{{ task.mark }}{% else %}Анализируется...{% endif %}
+    </div>
+    <div class="timestamp-cost">{{ task.timestamp }}</div>
+</div>
+
+
+<style>
+    .container-cost {
+        margin-top: 50px;
+        margin-left: 20%;
+        margin-right: 20%;
+        padding: 10px;
+        border-color: black;
+        border-radius: 5px;
+        border: solid;
+    }
+
+    .title-cost {
+        padding: 5px;
+        font-weight: bold;
+        border-bottom: solid;
+        text-align: center;
+        font-size: x-large;
+    }
+    .description-cost {
+        padding: 5px;
+        font-family: 'Times New Roman', Times, serif;
+        border-bottom: solid;
+    }
+    .mark-cost {
+        padding: 5px;
+        border-bottom: solid;
+        text-align: right;
+    }
+    .timestamp-cost {
+        padding: 5px;
+        text-align: left;
+        color: rgb(101, 101, 101);
+    }
+
+</style>
+{% endblock %}

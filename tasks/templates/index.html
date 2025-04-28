@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mark</th>
+        <th scope="col">Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+      <tr>
+        <th scope="row">{{ task.id }}</th>
+        <td><a href="{% url 'get-task' task_id=task.id %}">{{ task.name }}</a></td>
+        <td>{% if task.mark %}{{ task.mark }}{% else %}Анализируется...{% endif %}</td>
+        <td>{{ task.timestamp }}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
