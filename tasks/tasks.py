@@ -6,13 +6,6 @@ from .models import Task
 
 @shared_task
 def mark_task(task_id):
-
-    time.sleep(20)
-    try:
-        task = Task.objects.get(id=task_id)
-    except Task.DoesNotExist:
-        return
-    
-    mark = random.randint(1, 100)
-    task.save(mark=mark)
+    time.sleep(5) # анализ оценки с помощью ИИ
+    Task.objects.filter(id=task_id).update(mark=random.randint(1, 100))
 
